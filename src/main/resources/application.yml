@@ -1,0 +1,33 @@
+server:
+  port: 11011
+  servlet:
+    context-path: /api/v1
+
+spring:
+  datasource:
+    #postgresql数据库
+    pg:
+      jdbc-url: jdbc:postgresql://127.0.0.1:5432/switcher_pg
+      driver-class-name: org.postgresql.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      username: postgres
+      password: 123456
+    #mysql数据库
+    mysql:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/switcher_mysql?useUnicode=true&characterEncoding=utf8&useSSL=false
+      #这里是com.*，而pg是org.*
+      driver-class-name: com.mysql.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      username: root
+      password: 123456
+  #配置自动建表：updata:没有表新建，有表更新操作,控制台显示建表语句
+
+mybatis:
+  # 如果是放在src/main/java目录下 classpath:/package-name/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.apollo.entity
+  mapper-locations: classpath*:mapper/*.xml
+
+logging:
+  level:
+    root: DEBUG
