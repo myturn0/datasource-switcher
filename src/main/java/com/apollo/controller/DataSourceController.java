@@ -28,7 +28,6 @@ public class DataSourceController {
 
     @GetMapping("/provinces")
     public ApiResult getProvinces() {
-//        DsContextHolder.clearDataSourceType();
 //        DsContextHolder.setDataSourceType(DataSourceEnum.MYSQL);
         List<Week> weeks = weekService.getAllWork();
         System.out.println(weeks.size());
